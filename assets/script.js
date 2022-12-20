@@ -1,13 +1,19 @@
+// Thank to jonathan M pour l'aide
+
+//initialise en cherchant le main et btn 
 let slctMain = document.querySelector('main');
 let slctBtn = document.getElementById('btn');
 slctBtn.addEventListener('click', addQuote);
 
+//crée la fonction asyn pour ajouter les quotes
 async function addQuote (){
+    //try and catch 
 try{
+    //variable plus fetch avec lien url et await 
     let response = await fetch("https://thatsthespir.it/api");
-    let quote = await response.json();
-    let addArticle = document.createElement("article");
-    addArticle.innerText = quote.quote;
+    let quote = await response.json(); // await plus .json() après response pour préciser que je prend les infos
+    let addArticle = document.createElement("article"); // créa° de l'article qui va contenir les quotes
+    addArticle.innerText = quote.quote; // add inner text quote.quote précise que je prend les cita°, si juste quote me met en rep :[objet objet]
     slctMain.prepend(addArticle);
     displayQuote(addArticle, quote);
 }
@@ -18,8 +24,8 @@ catch(error) {
 
 }
 
-
-function displayQuote(addArticle, quote) {
+// créa° affichage quote
+function displayQuote(addArticle, quote) { 
 let figure = document.createElement("figure");
 let blockquote = document.createElement("blockquote");
 let h2 = document.createElement("h2");
