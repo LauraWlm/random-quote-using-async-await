@@ -13,7 +13,7 @@ try{
     let response = await fetch("https://thatsthespir.it/api");
     let quote = await response.json(); // await plus .json() après response pour préciser que je prend les infos
     let addArticle = document.createElement("article"); // créa° de l'article qui va contenir les quotes
-    addArticle.innerText = quote.quote; // add inner text quote.quote récupère l'infi dans l'objet, si juste quote me met en rep sur internet :[objet objet]
+    addArticle.innerText = quote.quote + " " + quote.author  // add inner text quote.quote récupère l'infi dans l'objet, si juste quote me met en rep sur internet :[objet objet]
     slctMain.prepend(addArticle);
     displayQuote(addArticle, quote);
 }
