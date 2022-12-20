@@ -4,14 +4,12 @@ slctBtn.addEventListener('click', addQuote);
 
 async function addQuote (){
 try{
-    const response = await fetch("https://thatsthespir.it/api");
-    let quote = response.json;
-    let addDiv = document.createElement("div");
+    let response = await fetch("https://thatsthespir.it/api");
+    let quote = await response.json();
     let addArticle = document.createElement("article");
-    addDiv.innerHTML = response;
-    document.body.appendChild(addDiv);
-    document.body.appendChild(addArticle);
-        
+    addArticle.innerText = quote.quote;
+    slctMain.prepend(addArticle);
+    displayQuote(addArticle, quote);
 }
 
 catch(error) {
@@ -21,4 +19,17 @@ catch(error) {
 }
 
 
+function displayQuote(addArticle, quote) {
+let figure = document.createElement("figure");
+let blockquote = document.createElement("blockquote");
+let h2 = document.createElement("h2");
+let p = document.createElement("p");
 
+blockquote.appendChild(h2);
+figure.appendChild(blockquote);
+blockquote.appendChild(p);
+addArticle.appendChild(figure);
+
+}
+
+addQuote()
