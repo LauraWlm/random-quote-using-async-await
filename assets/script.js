@@ -27,7 +27,7 @@ catch(error) {
 function displayQuote(addArticle, quote) { 
 let figure = document.createElement("figure");
 //let img = document.createElement("image");
-//img.setAttribute('src', quote.photo);
+//img.setAttribute('src', );
 let blockquote = document.createElement("blockquote");
 blockquote.setAttribute("cite", "https://thatsthespir.it/")
 let h2 = document.createElement("h2");
